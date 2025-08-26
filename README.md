@@ -34,4 +34,13 @@ pytest
 # Build and run Docker image
 docker build -t cicd-demo .
 docker run -p 5000:5000 cicd-demo
+```
 
+## ⚙️ How the pipeline works
+flowchart TD
+    A[Push Code to GitHub] --> B[GitHub Actions Trigger]
+    B --> C[Install Dependencies]
+    C --> D[Run Tests]
+    D --> E[Build Docker Image]
+    E --> F[Push Image to Registry]
+    F --> G[Ready for Deployment]
